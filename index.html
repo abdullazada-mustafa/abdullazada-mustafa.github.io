@@ -1,0 +1,1104 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mustafa Abdullazade</title>
+<meta name="description" content="Mustafa Abdullazade, software engineer with an M.Sc. in Computer Science Engineering. Projects, master's thesis, education and contact.">
+<meta property="og:title" content="Mustafa Abdullazade">
+<meta property="og:description" content="Software engineer with an M.Sc. in Computer Science Engineering.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%239E1F3A'/%3E%3Ctext x='32' y='44' font-family='Georgia,serif' font-size='36' font-weight='700' fill='white' text-anchor='middle'%3EM%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,400;0,500;0,700;0,800;1,400&family=Alegreya+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #F6F7F9;
+    --surface: #FFFFFF;
+    --ink: #1A2238;
+    --muted: #5A6378;
+    --rule: #DCE0E7;
+    --accent: #9E1F3A;
+    --accent-soft: #F3E1E5;
+    --bar-base: #B6BECB;
+    --on-accent: #FFFFFF;
+    --serif: "Alegreya", Georgia, "Times New Roman", serif;
+    --sans: "Alegreya Sans", "Helvetica Neue", Arial, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #121826;
+      --surface: #182033;
+      --ink: #E7EAF0;
+      --muted: #9AA3B5;
+      --rule: #2A3245;
+      --accent: #E2627A;
+      --accent-soft: #3A2131;
+      --bar-base: #4A5468;
+      --on-accent: #121826;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #121826;
+    --surface: #182033;
+    --ink: #E7EAF0;
+    --muted: #9AA3B5;
+    --rule: #2A3245;
+    --accent: #E2627A;
+    --accent-soft: #3A2131;
+    --bar-base: #4A5468;
+    --on-accent: #121826;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--serif);
+    font-size: 1.1875rem;
+    line-height: 1.62;
+    font-feature-settings: "kern", "liga", "onum";
+  }
+  a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 0.18em; }
+  a:hover { text-decoration-thickness: 2px; }
+  a:focus-visible, .btn:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 3px;
+  }
+
+  /* Layout: sidebar on the left, one section at a time on the right */
+  .layout {
+    max-width: 1160px;
+    margin: 0 auto;
+    padding: 0 32px;
+    display: grid;
+    grid-template-columns: 250px minmax(0, 1fr);
+    gap: 64px;
+  }
+  .side {
+    position: sticky;
+    top: 0;
+    align-self: start;
+    max-height: 100vh;
+    overflow-y: auto;
+    padding: 56px 0 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+  }
+  .portrait {
+    position: relative;
+    width: 128px;
+    aspect-ratio: 4 / 5;
+    border-radius: 6px;
+    overflow: hidden;
+    background: var(--accent-soft);
+    display: grid;
+    place-items: center;
+  }
+  .portrait .initials {
+    font-family: var(--serif);
+    font-weight: 800;
+    font-size: 2.9rem;
+    letter-spacing: -0.02em;
+    color: var(--accent);
+  }
+  .portrait img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  h1 {
+    font-family: var(--serif);
+    font-weight: 800;
+    font-size: 2.05rem;
+    line-height: 1.05;
+    letter-spacing: -0.015em;
+    margin: 22px 0 10px;
+  }
+  .role {
+    font-family: var(--sans);
+    font-size: 1rem;
+    line-height: 1.4;
+    color: var(--muted);
+    margin: 0;
+  }
+  .actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+  .actions .btn { text-align: center; }
+  .actions .btn.primary { grid-column: 1 / -1; }
+  .btn {
+    font-family: var(--sans);
+    font-weight: 500;
+    font-size: 0.95rem;
+    line-height: 1.2;
+    text-decoration: none;
+    padding: 8px 14px;
+    border-radius: 999px;
+    border: 1.5px solid var(--ink);
+    color: var(--ink);
+    background: transparent;
+  }
+  .btn:hover { background: var(--ink); color: var(--bg); }
+  .btn.primary { background: var(--accent); border-color: var(--accent); color: var(--on-accent); }
+  .btn.primary:hover { background: var(--ink); border-color: var(--ink); color: var(--bg); }
+
+  /* Section menu */
+  .sections ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border-left: 1px solid var(--rule);
+  }
+  .sections a {
+    display: block;
+    margin-left: -1px;
+    padding: 7px 0 7px 16px;
+    border-left: 2px solid transparent;
+    font-family: var(--sans);
+    font-weight: 500;
+    font-size: 1.05rem;
+    color: var(--muted);
+    text-decoration: none;
+  }
+  .sections a:hover { color: var(--ink); }
+  .sections a[aria-current="page"] {
+    color: var(--ink);
+    font-weight: 700;
+    border-left-color: var(--accent);
+  }
+  .sections a:focus-visible { outline-offset: -2px; }
+
+  main { min-width: 0; max-width: 38em; padding: 56px 0 0; }
+  .intro p { margin: 0 0 1em; max-width: 36em; }
+  .status {
+    margin: 28px 0 0;
+    padding: 2px 0 2px 16px;
+    border-left: 3px solid var(--accent);
+    font-weight: 500;
+    max-width: 36em;
+  }
+
+  /* One section at a time (only when JavaScript runs; otherwise the page is one long scroll) */
+  .js .panel { display: none; }
+  .js .panel.active { display: block; animation: show 0.22s ease-out; }
+  @keyframes show { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+  html:not(.js) .panel + .panel { border-top: 1px solid var(--rule); margin-top: 56px; padding-top: 56px; }
+  .panel > h2:focus { outline: none; }
+
+  /* Previous and next section links */
+  .pager {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    margin-top: 64px;
+    padding-top: 24px;
+    border-top: 1px solid var(--rule);
+    font-family: var(--sans);
+  }
+  .pager a {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.05rem;
+    line-height: 1.3;
+    color: var(--ink);
+    padding: 4px 0;
+  }
+  .pager a:hover { color: var(--accent); }
+  .pager a span {
+    font-weight: 400;
+    font-size: 0.9rem;
+    color: var(--muted);
+  }
+  .pager .next { margin-left: auto; text-align: right; }
+
+  /* Sections */
+  section.panel { padding: 0; }
+  section.panel > h2 {
+    font-family: var(--serif);
+    font-weight: 800;
+    font-size: clamp(1.75rem, 4vw, 2.1rem);
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+    margin: 0 0 32px;
+  }
+  section.panel > h2::before {
+    content: "";
+    display: block;
+    width: 40px;
+    height: 4px;
+    border-radius: 2px;
+    background: var(--accent);
+    margin-bottom: 16px;
+  }
+
+  .lede {
+    margin: -8px 0 40px;
+    font-size: 1.12em;
+    line-height: 1.55;
+    color: var(--muted);
+  }
+
+  /* Projects */
+  .project + .project {
+    margin-top: 48px;
+    padding-top: 48px;
+    border-top: 1px solid var(--rule);
+  }
+  .project h3 {
+    font-family: var(--serif);
+    font-weight: 700;
+    font-size: 1.45rem;
+    line-height: 1.25;
+    margin: 0 0 6px;
+  }
+  .project .source {
+    font-family: var(--sans);
+    font-size: 1rem;
+    color: var(--muted);
+    margin: 0 0 16px;
+  }
+  .project .source cite { font-style: italic; }
+  .project p { margin: 0 0 1em; }
+  .project .links {
+    font-family: var(--sans);
+    font-size: 1rem;
+    margin: 0;
+  }
+  .project .stack { color: var(--muted); }
+
+  /* Findings chart */
+  figure.result {
+    margin: 22px 0 24px;
+    padding: 20px 22px 18px;
+    background: var(--surface);
+    border: 1px solid var(--rule);
+    border-radius: 6px;
+  }
+  figure.result figcaption {
+    font-family: var(--sans);
+    font-weight: 700;
+    font-size: 1rem;
+    margin: 0 0 14px;
+  }
+  .row {
+    display: grid;
+    grid-template-columns: 14em minmax(0, 1fr) 4.5em;
+    align-items: center;
+    gap: 14px;
+    font-family: var(--sans);
+    font-size: 0.98rem;
+    line-height: 1.3;
+  }
+  .row + .row { margin-top: 10px; }
+  .track {
+    height: 14px;
+    background: var(--bg);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+  .bar {
+    display: block;
+    height: 100%;
+    width: var(--v);
+    background: var(--bar-base);
+    border-radius: 2px;
+  }
+  .bar.hot { background: var(--accent); }
+  .val { text-align: right; font-variant-numeric: tabular-nums lining-nums; font-weight: 700; }
+  .row q { quotes: "\201C" "\201D"; white-space: nowrap; }
+  .js .bar { width: 0; transition: width 0.9s cubic-bezier(.2,.7,.2,1); }
+  .js .result.shown .bar { width: var(--v); }
+  .js .result.shown .row + .row .bar { transition-delay: 0.25s; }
+
+
+  ol.steps { margin: 0 0 1em; padding-left: 1.4em; }
+  ol.steps li { padding-left: 0.2em; }
+  ol.steps li + li { margin-top: 6px; }
+  ol.steps li::marker { font-family: var(--sans); font-weight: 700; color: var(--accent); }
+  .project .limits { color: var(--muted); font-size: 0.98em; }
+  .legend {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 6px 10px;
+    margin: -6px 0 14px !important;
+    font-family: var(--sans);
+    font-size: 0.92rem;
+    color: var(--muted);
+  }
+  .legend .item { display: inline-flex; align-items: center; gap: 6px; white-space: nowrap; margin-right: 12px; }
+  .legend .key { display: inline-block; width: 14px; height: 10px; border-radius: 2px; background: var(--bar-base); }
+  .legend .key.hot { background: var(--accent); }
+  .pair { display: grid; gap: 5px; }
+  .pair .track { height: 12px; }
+  .pair-val { display: grid; gap: 5px; font-size: 0.82rem; line-height: 12px; }
+  .row:has(.pair) + .row { margin-top: 14px; }
+
+  .project h4 {
+    font-family: var(--sans);
+    font-weight: 700;
+    font-size: 1.05rem;
+    margin: 32px 0 8px;
+  }
+  .project .source + h4 { margin-top: 20px; }
+
+  ol.flow {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px 14px;
+    counter-reset: step;
+  }
+  ol.flow li {
+    counter-increment: step;
+    border-top: 3px solid var(--accent);
+    padding-top: 10px;
+    font-family: var(--sans);
+    line-height: 1.3;
+  }
+  ol.flow li::before {
+    content: counter(step);
+    display: block;
+    font-family: var(--serif);
+    font-weight: 800;
+    font-size: 1.3rem;
+    line-height: 1;
+    color: var(--accent);
+    margin-bottom: 6px;
+    font-variant-numeric: lining-nums;
+  }
+  ol.flow .step { display: block; font-weight: 700; font-size: 0.98rem; }
+  ol.flow .who { display: block; color: var(--muted); font-size: 0.92rem; margin-top: 2px; }
+  figure.result figcaption.note {
+    font-weight: 400;
+    color: var(--muted);
+    margin: 18px 0 0;
+    font-size: 0.95rem;
+    line-height: 1.4;
+  }
+  @media (min-width: 1100px) {
+    ol.flow { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+  }
+
+  dl.parts { margin: 0 0 1em; }
+  dl.parts dt {
+    font-family: var(--sans);
+    font-weight: 700;
+    font-size: 1rem;
+    margin-top: 12px;
+  }
+  dl.parts dt:first-child { margin-top: 0; }
+  dl.parts dd { margin: 2px 0 0; }
+
+  dl.stats {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+    margin: 0;
+  }
+  dl.stats dt {
+    font-family: var(--serif);
+    font-weight: 800;
+    font-size: 1.6rem;
+    line-height: 1.1;
+    color: var(--accent);
+    font-variant-numeric: lining-nums;
+    white-space: nowrap;
+  }
+  dl.stats dd {
+    margin: 4px 0 0;
+    font-family: var(--sans);
+    font-size: 0.95rem;
+    line-height: 1.35;
+    color: var(--muted);
+  }
+
+  /* Timeline entries */
+  .entry + .entry { margin-top: 28px; }
+  .entry-head {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 2px 16px;
+    align-items: baseline;
+  }
+  .entry h3 {
+    font-family: var(--serif);
+    font-weight: 700;
+    font-size: 1.2rem;
+    line-height: 1.3;
+    margin: 0;
+  }
+  .when {
+    font-family: var(--sans);
+    font-size: 1rem;
+    color: var(--muted);
+    font-variant-numeric: lining-nums;
+    white-space: nowrap;
+  }
+  .entry .where {
+    font-family: var(--sans);
+    color: var(--muted);
+    font-size: 1.02rem;
+    margin: 2px 0 6px;
+  }
+  .entry p { margin: 0; }
+  .entry p + p { margin-top: 4px; }
+  ul.duties, ul.findings { margin: 0; padding-left: 1.1em; }
+  ul.findings { margin: 0 0 1.2em; }
+  ul.findings li + li { margin-top: 6px; }
+  ul.findings li::marker { color: var(--accent); }
+  ul.duties li { padding-left: 0.2em; }
+  ul.duties li + li { margin-top: 4px; }
+  ul.duties li::marker { color: var(--accent); }
+
+  dl.skills { margin: 0; }
+  dl.skills dt {
+    font-family: var(--sans);
+    font-weight: 700;
+    font-size: 1rem;
+  }
+  dl.skills dd { margin: 0 0 16px; }
+  dl.skills dd:last-child { margin-bottom: 0; }
+
+
+  /* Contact */
+  dl.contact {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px 32px;
+    margin: 0 0 36px;
+  }
+  dl.contact div { border-top: 1px solid var(--rule); padding-top: 12px; }
+  dl.contact dt {
+    font-family: var(--sans);
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: var(--muted);
+    margin-bottom: 2px;
+  }
+  dl.contact dd { margin: 0; overflow-wrap: anywhere; }
+  .localtime { display: block; margin-top: 4px; font-size: 0.92em; color: var(--muted); }
+  .localtime[hidden] { display: none; }
+  figure.map { margin: 0; }
+  figure.map iframe {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border: 1px solid var(--rule);
+    border-radius: 6px;
+    background: var(--surface);
+  }
+  figure.map figcaption {
+    margin-top: 8px;
+    font-family: var(--sans);
+    font-size: 0.95rem;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) figure.map iframe { filter: invert(0.9) hue-rotate(180deg); }
+  }
+  :root[data-theme="dark"] figure.map iframe { filter: invert(0.9) hue-rotate(180deg); }
+  @media (max-width: 760px) {
+    dl.contact { grid-template-columns: 1fr; gap: 18px; }
+    figure.map iframe { aspect-ratio: 4 / 3; }
+  }
+
+  footer {
+    margin-top: 48px;
+    padding: 0 0 56px;
+    font-family: var(--sans);
+    font-size: 0.95rem;
+    color: var(--muted);
+  }
+
+  @media (min-width: 1600px) {
+    html { font-size: 112.5%; }
+    .layout { max-width: 1280px; }
+  }
+  @media (min-width: 2200px) {
+    html { font-size: 125%; }
+    .layout { max-width: 1440px; }
+  }
+
+  /* Shorter laptop screens: compact sidebar so the whole menu fits */
+  @media (min-width: 861px) and (max-height: 900px) {
+    .side { padding: 36px 0 28px; gap: 20px; }
+    .profile {
+      display: grid;
+      grid-template-columns: 72px minmax(0, 1fr);
+      gap: 14px;
+      align-items: center;
+    }
+    .profile > div:last-child { display: contents; }
+    .portrait { width: 72px; }
+    .portrait .initials { font-size: 1.6rem; }
+    h1 { font-size: 1.5rem; margin: 0; }
+    .role { grid-column: 1 / -1; font-size: 0.92rem; }
+    main { padding-top: 36px; }
+    .sections a { padding: 5px 0 5px 16px; }
+  }
+
+  /* Tablets in portrait and phones: profile on top, section menu becomes a row of tabs */
+  @media (max-width: 860px) {
+    body { font-size: 1.125rem; }
+    .layout { display: block; padding: 0 16px; }
+    .side { display: contents; }
+    .profile {
+      display: grid;
+      grid-template-columns: 76px minmax(0, 1fr);
+      gap: 16px;
+      align-items: center;
+      padding-top: 28px;
+    }
+    .portrait { width: 76px; }
+    .portrait .initials { font-size: 1.7rem; }
+    h1 { font-size: 1.65rem; margin: 0 0 4px; }
+    .role { font-size: 0.95rem; }
+    .actions { margin-top: 16px; display: flex; flex-wrap: wrap; }
+    .actions .btn.primary { grid-column: auto; }
+    main { max-width: none; }
+    .sections {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      margin: 20px -16px 0;
+      padding: 0 16px;
+      background: var(--bg);
+      border-top: 1px solid var(--rule);
+      border-bottom: 1px solid var(--rule);
+    }
+    .sections ul {
+      display: flex;
+      gap: 22px;
+      border-left: 0;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+    .sections ul::-webkit-scrollbar { display: none; }
+    .sections ul.fade-right { -webkit-mask-image: linear-gradient(to right, #000 calc(100% - 32px), transparent); mask-image: linear-gradient(to right, #000 calc(100% - 32px), transparent); }
+    .sections ul.fade-left { -webkit-mask-image: linear-gradient(to left, #000 calc(100% - 32px), transparent); mask-image: linear-gradient(to left, #000 calc(100% - 32px), transparent); }
+    .sections ul.fade-left.fade-right { -webkit-mask-image: linear-gradient(to right, transparent, #000 32px, #000 calc(100% - 32px), transparent); mask-image: linear-gradient(to right, transparent, #000 32px, #000 calc(100% - 32px), transparent); }
+    .sections a {
+      margin: 0;
+      padding: 13px 0 11px;
+      border-left: 0;
+      border-bottom: 2px solid transparent;
+      font-size: 1rem;
+      white-space: nowrap;
+    }
+    .sections a[aria-current="page"] { border-bottom-color: var(--accent); }
+    main { padding-top: 32px; }
+    section.panel > h2 { margin-bottom: 24px; }
+    .project + .project { margin-top: 40px; padding-top: 40px; }
+  }
+
+  @media (max-width: 760px) {
+    .row {
+      grid-template-columns: minmax(0, 1fr) 4em;
+      gap: 6px 12px;
+    }
+    .row .label { grid-column: 1 / -1; }
+    dl.stats { grid-template-columns: 1fr; gap: 14px; }
+    ol.flow { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    figure.result { padding: 16px; }
+  }
+  @media (max-width: 340px) {
+    .layout { padding: 0 14px; }
+    .sections { margin: 20px -14px 0; padding: 0 14px; }
+    .sections ul { gap: 18px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .js .bar { transition: none; }
+    .js .panel.active { animation: none; }
+  }
+</style>
+</head>
+<body>
+<script>document.documentElement.classList.add('js');</script>
+
+<div class="layout">
+
+  <div class="side">
+    <div class="profile">
+      <div class="portrait">
+        <span class="initials" aria-hidden="true">MA</span>
+        <img src="data:image/jpeg;base64,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" alt="Portrait of Mustafa Abdullazade" width="228" height="285">
+      </div>
+      <div>
+        <h1>Mustafa Abdullazade</h1>
+        <p class="role">Software engineer<br>M.Sc. in Computer Science Engineering</p>
+      </div>
+    </div>
+
+    <div class="actions">
+      <a class="btn primary" href="mailto:abdullazadamustafa@gmail.com?subject=Contact%20from%20your%20website">Email me</a>
+      <a class="btn" href="https://github.com/abdullazada-mustafa">GitHub</a>
+      <a class="btn" href="Mustafa_Abdullazade_CV.pdf" target="_blank" rel="noopener">CV (PDF)</a>
+    </div>
+
+    <nav class="sections" aria-label="Sections">
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#thesis">Thesis</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <main>
+
+    <section class="panel" id="about" aria-labelledby="h-about">
+      <h2 id="h-about">About</h2>
+      <div class="intro">
+        <p>I hold a master's degree in Computer Science Engineering from the Budapest University of Technology and Economics (BME), where I studied on a full Stipendium Hungaricum scholarship, and a bachelor's degree in Mechatronics and Robotics Engineering. Along the way I interned as a software developer at Nokia and worked as a backend developer at NIX Tech, which showed me how much modern systems, from robots to web platforms, depend on software that is secure and trustworthy.</p>
+        <p>My recent projects test systems in which a machine learning or AI model makes a security decision, such as whether to approve code written by another AI, let a user keep chatting or accept a login, and measure how often they accept what they should reject. I want to pursue research on the security and reliability of AI-driven software, including code written by AI, building on my background in secure backend development.</p>
+
+        <p class="status">I am looking for a funded PhD position starting in Fall 2027.</p>
+      </div>
+    </section>
+
+    <section class="panel" id="projects" aria-labelledby="h-projects">
+      <h2 id="h-projects">Projects</h2>
+      <div class="content">
+        <p class="lede">All three projects ask the same question: when an automated system, whether a panel of AI judges, an AI chatbot or a machine learning model, decides what to accept, how often does it accept what it should reject? Each one takes a recently published paper and tests the cases its authors left open.</p>
+
+        <article class="project">
+          <h3>Weighted AI juries for reviewing AI-written SQL</h3>
+          <p class="source">2026, following up on <cite>Vibe Coding on Trial: Operating Characteristics of Unanimous LLM Juries</cite> (Ullah and Serwadda, ICSC 2026)</p>
+
+          <h4>The paper</h4>
+          <p>When AI tools write code, someone still has to decide which of it is safe to accept. The paper lets a panel of AI models act as a jury over SQL queries written by other AI models, and accepts a query only if every judge approves it. As future work, it suggests giving each judge a vote weighted by how reliable it has proven to be, and choosing the jury automatically from how costly it is to let a bad query through.</p>
+
+          <h4>What I did</h4>
+          <ol class="steps">
+            <li>Built both ideas as a small, fully reproducible pilot on a laptop, with five open AI models running locally as judges.</li>
+            <li>Had the judges review 397 queries written by AI models for 82 database questions, 93 of them wrong, plus 273 queries with deliberately planted bugs. Every query was labeled correct or wrong by running it on ten test databases.</li>
+            <li>Compared the paper's unanimous jury with weighted and majority votes, and with juries chosen automatically for a given cost of a missed bug, testing each on questions it had not been tuned on.</li>
+            <li>Went on to test several open questions the paper raises, and read all 93 wrong queries by hand to check their labels.</li>
+          </ol>
+
+          <figure class="result">
+            <figcaption>Share of wrong queries each judge let through</figcaption>
+            <p class="legend"><span class="item"><span class="key"></span>Planted bugs</span><span class="item"><span class="key hot"></span>Real mistakes made by AI models</span></p>
+            <div class="row">
+              <span class="label">gpt-oss (strongest)</span>
+              <span class="pair" aria-hidden="true"><span class="track"><span class="bar" style="--v:3%"></span></span><span class="track"><span class="bar hot" style="--v:16%"></span></span></span>
+              <span class="val pair-val"><span>3%</span><span>16%</span></span>
+            </div>
+            <div class="row">
+              <span class="label">phi4</span>
+              <span class="pair" aria-hidden="true"><span class="track"><span class="bar" style="--v:21%"></span></span><span class="track"><span class="bar hot" style="--v:45%"></span></span></span>
+              <span class="val pair-val"><span>21%</span><span>45%</span></span>
+            </div>
+            <div class="row">
+              <span class="label">gemma3</span>
+              <span class="pair" aria-hidden="true"><span class="track"><span class="bar" style="--v:24%"></span></span><span class="track"><span class="bar hot" style="--v:42%"></span></span></span>
+              <span class="val pair-val"><span>24%</span><span>42%</span></span>
+            </div>
+            <div class="row">
+              <span class="label">codellama</span>
+              <span class="pair" aria-hidden="true"><span class="track"><span class="bar" style="--v:58%"></span></span><span class="track"><span class="bar hot" style="--v:83%"></span></span></span>
+              <span class="val pair-val"><span>58%</span><span>83%</span></span>
+            </div>
+            <div class="row">
+              <span class="label">codegemma (weakest)</span>
+              <span class="pair" aria-hidden="true"><span class="track"><span class="bar" style="--v:90%"></span></span><span class="track"><span class="bar hot" style="--v:99%"></span></span></span>
+              <span class="val pair-val"><span>90%</span><span>99%</span></span>
+            </div>
+            <figcaption class="note">Every judge missed more real mistakes than planted ones, and the best judge missed five times as many. Tests built from planted bugs make AI reviewers look much safer than they are.</figcaption>
+          </figure>
+
+          <h4>What I found</h4>
+          <ul class="findings">
+            <li>Weighting the votes tied the paper's unanimous jury rather than beating it, because one strong judge did most of the work.</li>
+            <li>Choosing the jury for the cost of a mistake is what paid off. When a missed bug is expensive, the paper's fixed jury became more costly than having a person check every query, while a jury chosen for that cost was about 45% cheaper. It needs around a hundred checked queries before it can learn this.</li>
+            <li>Judges share blind spots: when every judge had to agree, 3.4 times more wrong queries got through than if their mistakes were independent. Majority voting was far worse, which supports the paper's choice of unanimity.</li>
+            <li>A model judging its own SQL is too lenient, but mostly because it misunderstood the question in the first place, not because it favors its own code. So keeping the writer off its own jury does not help.</li>
+          </ul>
+          <p class="limits">Limits: one database design, 82 questions and five laptop-sized judges, so the confidence intervals are wide.</p>
+          <p class="links"><a href="https://github.com/abdullazada-mustafa/llm-jury-sql">Code, votes and full results on GitHub</a> <span class="stack">&nbsp;Python, Ollama, SQLite, pytest</span></p>
+        </article>
+
+        <article class="project">
+          <h3>Stress testing an age gate for AI chatbots</h3>
+          <p class="source">2026, following up on <cite>Actions Speak Louder Than Chats: Investigating AI Chatbot Age Gating</cite> (Figueira, Chamarthi, Le and Markopoulou, arXiv 2026)</p>
+
+          <h4>The paper</h4>
+          <p>Chatbot providers say children under 13 should not use their services. Across 1,050 experiments, the paper shows that popular chatbots can tell from a conversation when they are talking to a child, but do nothing about it. As a proof of concept, the authors built a simple age gate: a set of instructions plus a function that lets the model end the chat. They name two open risks: children trying to get around a gate, and adults being blocked by mistake.</p>
+
+          <h4>What I did</h4>
+          <ol class="steps">
+            <li>Rebuilt the paper's gate with its exact instructions on a newer, lighter Gemini model, and reproduced its 210 test runs. The main result held: all 60 children who stated their age were blocked, against 59 of 60 in the paper.</li>
+            <li>Wrote 62 new test messages for the two open risks: children using tricks (taking back their age, a parent "typing for them", a pretend game, pleading) and adults who sound a bit like children (parents, teachers, adults with children's hobbies, non-native English speakers).</li>
+            <li>Read the gate's own written reasoning for every wrongly blocked chat, then tested a redesign in which the model only estimates the age and a fixed rule in code decides.</li>
+          </ol>
+
+          <figure class="result">
+            <figcaption>Children who stated their age and were blocked</figcaption>
+            <div class="row">
+              <span class="label">The paper's test messages</span>
+              <span class="track" aria-hidden="true"><span class="bar" style="--v:100%"></span></span>
+              <span class="val">24 / 24</span>
+            </div>
+            <div class="row">
+              <span class="label">Plus a false claim of being 18</span>
+              <span class="track" aria-hidden="true"><span class="bar hot" style="--v:16.7%"></span></span>
+              <span class="val">4 / 24</span>
+            </div>
+          </figure>
+
+          <h4>What I found</h4>
+          <ul class="findings">
+            <li>Social tricks did not work (71 of 72 chats were still blocked), but taking back the stated age with a false claim of being an adult got 20 of 24 children through.</li>
+            <li>Adults were rarely blocked by mistake (6 of 156). In every one of those cases, the gate's own report said the user was an adult, and it ended the chat anyway. The errors came from the decision ignoring the model's own estimate, not from misjudging age.</li>
+            <li>Separating the estimate from the decision removed those wrong blocks (0 of 52 adults) while still blocking every child who stated their age. It made the false-claim trick worse, though, because the estimate simply believed the claimed age.</li>
+          </ul>
+          <p class="limits">Limits: one model, a different one from the paper's, small samples and test messages written by me rather than real users.</p>
+          <p class="links"><a href="https://github.com/abdullazada-mustafa/chatbot-age-gate-robustness">Code, test messages and transcripts on GitHub</a> <span class="stack">&nbsp;Python, Gemini API</span></p>
+        </article>
+
+        <article class="project">
+          <h3>A copied-signal attack on Wi-Fi based two-factor authentication</h3>
+          <p class="source">2026, following up on <cite>Leveraging Machine Learning for Wi-Fi-Based Environmental Continuous Two-Factor Authentication</cite> (AlQahtani, Alshayeb, Nabil and Patooghy, IEEE Access 2024)</p>
+
+          <h4>The paper</h4>
+          <p>The paper replaces the codes of two-factor authentication with a check that needs no effort from the user: you stay logged in only while your laptop and your phone see the same nearby Wi-Fi access points at similar signal strengths, as judged by a machine learning model every 30 seconds. Its decision tree model reached 92% accuracy. Its attack tests mostly added random noise to the signals, and the authors note that they did not directly address targeted attacks.</p>
+
+          <h4>What I did</h4>
+          <ol class="steps">
+            <li>Collected my own data with a passive Wi-Fi scanner: 178 scans, 60 at the user's position and 118 about ten meters away.</li>
+            <li>Trained the paper's three best model types (decision tree, random forest and k-nearest neighbors) on network names, frequencies and signal strengths.</li>
+            <li>Simulated a targeted attacker who broadcasts fake beacons: I copied the legitimate network names onto the far-away scans and moved their signal strengths most of the way toward the user's, then measured how often each model accepted them.</li>
+          </ol>
+
+          <figure class="result">
+            <figcaption>Far-away scans accepted by the decision tree model</figcaption>
+            <div class="row">
+              <span class="label">Real scans, no attack</span>
+              <span class="track" aria-hidden="true"><span class="bar" style="--v:20.8%"></span></span>
+              <span class="val">20.8%</span>
+            </div>
+            <div class="row">
+              <span class="label">Forged scans</span>
+              <span class="track" aria-hidden="true"><span class="bar hot" style="--v:51.1%"></span></span>
+              <span class="val">51.1%</span>
+            </div>
+          </figure>
+
+          <h4>What I found</h4>
+          <ul class="findings">
+            <li>The decision tree, the paper's most accurate model, was the easiest to fool: forged signals more than doubled how often it let in someone who was not there.</li>
+            <li>The random forest was affected less (20.8% to 28.7%), and k-nearest neighbors resisted the attack, so how robust the system is depends heavily on which model it uses.</li>
+          </ul>
+          <p class="limits">Limits: one laptop, one building and 178 scans, with the attack simulated on recorded data rather than performed with real hardware. Next, I would run it live in a lab and add features that are hard to copy, such as the timing of each access point's beacons.</p>
+          <p class="links"><a href="https://github.com/abdullazada-mustafa/wifi-2fa-spoofing-study">Code and data on GitHub</a> <span class="stack">&nbsp;Python, scikit-learn, pandas</span></p>
+        </article>
+
+      </div>
+    </section>
+
+    <section class="panel" id="thesis" aria-labelledby="h-thesis">
+      <h2 id="h-thesis">Master's thesis</h2>
+      <div class="content">
+        <article class="project">
+          <h3>Conference Management System</h3>
+          <p class="source">Budapest University of Technology and Economics, 2025. Supervised by Kawthar Al&#8209;Ghourani, Department of Automation and Applied Informatics.</p>
+
+          <h4>The problem</h4>
+          <p>The department runs the Automation and Applied Computer Science Workshop (AACS), where PhD students present and discuss their research. The usual tools fit it poorly: the free version of EasyChair stops at 20 submissions, and Microsoft CMT is far more than a workshop with a few dozen papers needs. My thesis was to design, build and evaluate a custom platform for events like this, with separate roles and dashboards for authors, reviewers and organizers.</p>
+
+          <h4>How a paper moves through the system</h4>
+          <figure class="result">
+            <ol class="flow">
+              <li><span class="step">Abstract submission</span><span class="who">Author</span></li>
+              <li><span class="step">Abstract approval</span><span class="who">Organizer</span></li>
+              <li><span class="step">Full paper upload</span><span class="who">Author</span></li>
+              <li><span class="step">Reviewer assignment</span><span class="who">Organizer</span></li>
+              <li><span class="step">Review and scoring</span><span class="who">Reviewers</span></li>
+              <li><span class="step">Final decision</span><span class="who">Organizer</span></li>
+            </ol>
+            <figcaption class="note">After the decision, authors can revise the paper based on the reviews and resubmit it, and earlier versions are kept in an archive.</figcaption>
+          </figure>
+
+          <h4>Architecture</h4>
+          <p>The platform is a React and TypeScript single page app that talks to a Node.js and Express API. Instead of putting everything in one database, I stored each kind of data where it fits best:</p>
+          <dl class="parts">
+            <dt>PostgreSQL</dt>
+            <dd>The authoritative record of users, papers, reviews and decisions, where consistency matters most.</dd>
+            <dt>Google Firestore</dt>
+            <dd>Pushes live submission status to the browser, so authors see changes without refreshing.</dd>
+            <dt>AWS S3</dt>
+            <dd>Stores the papers, which are uploaded straight from the browser through short-lived signed links, so large files never pass through the server.</dd>
+          </dl>
+          <p>I wrote raw SQL with connection pooling instead of using an ORM, which let the dashboards fetch a paper together with its authors, reviews and scores in a single response.</p>
+
+          <h4>Security</h4>
+          <p>Each layer has its own defense: parameterized queries against SQL injection, input sanitization against cross-site scripting, bcrypt password hashing, JWT-based authentication through Firebase Authentication with tokens verified on the server, and database transactions so that related records are saved together or not at all.</p>
+
+          <h4>Evaluation</h4>
+          <p>I load tested the platform with Apache JMeter, k6 and Artillery on a simulated conference of 2,500 users and 1,200 papers, with three reviewers per paper and a deadline rush in which 85% of submissions arrive in the final two hours.</p>
+          <figure class="result">
+            <figcaption>Results under a simulated deadline rush</figcaption>
+            <dl class="stats">
+              <div><dt>&lt; 210 ms</dt><dd>95th percentile response time with 500 users at once</dd></div>
+              <div><dt>&gt; 99.8%</dt><dd>of requests succeeded on every endpoint</dd></div>
+              <div><dt>3,150</dt><dd>requests per second at peak</dd></div>
+            </dl>
+          </figure>
+          <p>Profiling with Prometheus, Grafana and PostgreSQL query statistics showed that CPU becomes the limit at peak load, with the database connection pool filling up a little earlier, at about 2,800 requests per second. Memory stayed stable through a 24-hour stress test, and because papers go straight to S3, uploads kept scaling up to 500 users uploading at the same time.</p>
+
+          <h4>What the thesis examines</h4>
+          <p>Beyond building the system, the thesis studies the trade-offs of spreading data across three services, such as keeping stored files and database records in sync without a distributed transaction, and the security risks of handling user identity through two authentication mechanisms at once. Questions like these, about consistency and trust between the parts of a system, are close to what I want to study in software security.</p>
+
+          <p class="links"><span class="stack">React, TypeScript, Vite, Material UI, Node.js, Express, PostgreSQL, Google Firestore, Firebase Authentication, AWS S3, Docker, Nginx</span></p>
+        </article>
+      </div>
+    </section>
+
+    <section class="panel" id="education" aria-labelledby="h-education">
+      <h2 id="h-education">Education</h2>
+      <div class="content">
+        <div class="entry">
+          <div class="entry-head">
+            <h3>M.Sc. in Computer Science Engineering</h3>
+            <span class="when">Sep 2022 – Jan 2026</span>
+          </div>
+          <p class="where">Budapest University of Technology and Economics (BME), Hungary</p>
+          <p>Full Stipendium Hungaricum Scholarship from the Government of Hungary.</p>
+          <p>Thesis: <a href="#thesis">Conference Management System</a>, supervised by Kawthar Al&#8209;Ghourani.</p>
+        </div>
+        <div class="entry">
+          <div class="entry-head">
+            <h3>B.Sc. in Mechatronics and Robotics Engineering</h3>
+            <span class="when">Sep 2018 – Jul 2022</span>
+          </div>
+          <p class="where">Azerbaijan State Oil and Industry University (ASOIU), Baku</p>
+          <p>Joint program with the University of Siegen, Germany.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel" id="experience" aria-labelledby="h-experience">
+      <h2 id="h-experience">Experience</h2>
+      <div class="content">
+        <div class="entry">
+          <div class="entry-head">
+            <h3>Mandatory Military Service</h3>
+            <span class="when">Apr 2026 – Apr 2027 (expected)</span>
+          </div>
+          <p class="where">National Defense University, Azerbaijan</p>
+        </div>
+        <div class="entry">
+          <div class="entry-head">
+            <h3>Backend Developer, NIX Tech</h3>
+            <span class="when">Mar 2024 – Jan 2026</span>
+          </div>
+          <p class="where">Budapest, Hungary</p>
+          <ul class="duties">
+            <li>Developed and maintained backend modules for core banking operations.</li>
+            <li>Designed and optimized Oracle PL/SQL procedures, triggers and packages handling high-volume transactions.</li>
+            <li>Built and integrated RESTful APIs connecting internal systems and services.</li>
+            <li>Implemented business logic automation for contract and document generation linked to multiple credits and guarantees.</li>
+            <li>Managed code versioning and deployment using Git and Team Foundation Server (TFS).</li>
+            <li>Participated in internal audits and optimized database logging to improve change traceability.</li>
+          </ul>
+        </div>
+        <div class="entry">
+          <div class="entry-head">
+            <h3>Software Developer Intern, Nokia</h3>
+            <span class="when">Jan 2023 – Jan 2024</span>
+          </div>
+          <p class="where">Budapest, Hungary</p>
+          <ul class="duties">
+            <li>Engineered backend service modules and implemented RESTful APIs using Python and Java within an Agile development workflow.</li>
+            <li>Automated system and integration testing using Python scripts, expanding code coverage and improving build stability.</li>
+            <li>Containerized application components using Docker and supported CI/CD pipeline deployments (Jenkins and GitLab).</li>
+            <li>Participated in peer code reviews and authored detailed technical documentation for service APIs and system tools.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel" id="skills" aria-labelledby="h-skills">
+      <h2 id="h-skills">Skills</h2>
+      <div class="content">
+        <dl class="skills">
+          <dt>Programming languages</dt>
+          <dd>Python, TypeScript, JavaScript, SQL</dd>
+          <dt>Web development</dt>
+          <dd>React, Node.js, Express, Vite, Material UI</dd>
+          <dt>Data, cloud and tools</dt>
+          <dd>PostgreSQL, Oracle PL/SQL, Firebase, AWS S3, Docker, Nginx, Git, Team Foundation Server, Linux</dd>
+          <dt>Testing and monitoring</dt>
+          <dd>Apache JMeter, k6, Artillery, pytest, Prometheus, Grafana</dd>
+          <dt>Machine learning</dt>
+          <dd>scikit-learn, pandas, LLM APIs (Gemini), local LLMs with Ollama</dd>
+          <dt>Languages</dt>
+          <dd>Azerbaijani (native), English (fluent), Turkish (fluent)</dd>
+        </dl>
+      </div>
+    </section>
+
+    <section class="panel" id="contact" aria-labelledby="h-contact">
+      <h2 id="h-contact">Contact</h2>
+      <p class="lede">Email is the best way to reach me. I am happy to talk about PhD positions, my projects or my thesis.</p>
+      <dl class="contact">
+        <div>
+          <dt>Email</dt>
+          <dd><a href="mailto:abdullazadamustafa@gmail.com?subject=Contact%20from%20your%20website">abdullazadamustafa@gmail.com</a></dd>
+        </div>
+        <div>
+          <dt>GitHub</dt>
+          <dd><a href="https://github.com/abdullazada-mustafa">github.com/abdullazada-mustafa</a></dd>
+        </div>
+        <div>
+          <dt>CV</dt>
+          <dd><a href="Mustafa_Abdullazade_CV.pdf" target="_blank" rel="noopener">Open my CV as a PDF</a></dd>
+        </div>
+        <div>
+          <dt>Location and time zone</dt>
+          <dd>Baku, Azerbaijan<br>UTC+4, Azerbaijan Time<span class="localtime" hidden></span></dd>
+        </div>
+      </dl>
+      <figure class="map">
+        <iframe title="Map of Baku, Azerbaijan" src="https://www.openstreetmap.org/export/embed.html?bbox=49.70%2C40.33%2C50.02%2C40.48&amp;layer=mapnik&amp;marker=40.4093%2C49.8671" loading="lazy"></iframe>
+        <figcaption><a href="https://www.openstreetmap.org/?mlat=40.4093&amp;mlon=49.8671#map=11/40.4093/49.8671" target="_blank" rel="noopener">View a larger map</a></figcaption>
+      </figure>
+    </section>
+
+    <footer>
+      <p>&copy; 2026 Mustafa Abdullazade. Last updated October 2026.</p>
+    </footer>
+  </main>
+
+</div>
+
+<script>
+  (function () {
+    // Animate the result bars when a chart comes into view
+    var figs = document.querySelectorAll('.result');
+    if ('IntersectionObserver' in window) {
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) { e.target.classList.add('shown'); io.unobserve(e.target); }
+        });
+      }, { threshold: 0.4 });
+      figs.forEach(function (f) { io.observe(f); });
+    } else {
+      figs.forEach(function (f) { f.classList.add('shown'); });
+    }
+
+    // Local time in Baku, and how far ahead or behind the visitor it is
+    var lt = document.querySelector('.localtime');
+    if (lt) {
+      try {
+        var fmt = new Intl.DateTimeFormat('en-US', { timeZone: 'Asia/Baku', hour: 'numeric', minute: '2-digit' });
+        var tick = function () {
+          var now = new Date();
+          // Baku is always UTC+4 (240 minutes); getTimezoneOffset gives the visitor's own offset, daylight saving included
+          var diff = 240 + now.getTimezoneOffset();
+          var h = Math.floor(Math.abs(diff) / 60), m = Math.abs(diff) % 60;
+          var span = (h ? h + (h === 1 ? ' hour' : ' hours') : '') + (h && m ? ' ' : '') + (m ? m + ' minutes' : '');
+          var rel = diff === 0 ? 'the same as your local time' : span + (diff > 0 ? ' ahead of you' : ' behind you');
+          lt.textContent = 'It is ' + fmt.format(now) + ' in Baku right now, ' + rel + '.';
+          lt.hidden = false;
+        };
+        tick();
+        setInterval(tick, 30000);
+      } catch (err) {}
+    }
+
+    // Show one section at a time, chosen from the menu
+    var links = Array.prototype.slice.call(document.querySelectorAll('.sections a[href^="#"]'));
+    var order = links.map(function (a) { return a.getAttribute('href').slice(1); });
+    var labels = {};
+    links.forEach(function (a) { labels[a.getAttribute('href').slice(1)] = a.textContent; });
+    var panels = {};
+    order.forEach(function (id) {
+      panels[id] = document.getElementById(id);
+      // Without the id, the browser won't jump down the page when opened with a link like #thesis
+      panels[id].removeAttribute('id');
+    });
+    var menu = document.querySelector('.sections ul');
+    var nav = document.querySelector('.sections');
+    var main = document.querySelector('main');
+
+    // Previous / next links at the bottom of each section
+    order.forEach(function (id, i) {
+      var pager = document.createElement('nav');
+      pager.className = 'pager';
+      pager.setAttribute('aria-label', 'More sections');
+      if (i > 0) pager.innerHTML += '<a class="prev" href="#' + order[i - 1] + '"><span>Previous</span>' + labels[order[i - 1]] + '</a>';
+      if (i < order.length - 1) pager.innerHTML += '<a class="next" href="#' + order[i + 1] + '"><span>Next</span>' + labels[order[i + 1]] + '</a>';
+      panels[id].appendChild(pager);
+    });
+
+    function updateFades() {
+      var max = menu.scrollWidth - menu.clientWidth;
+      menu.classList.toggle('fade-left', menu.scrollLeft > 2);
+      menu.classList.toggle('fade-right', max > 2 && menu.scrollLeft < max - 2);
+    }
+
+    function show(id, fromClick) {
+      if (!panels[id]) id = 'about';
+      order.forEach(function (k) { panels[k].classList.toggle('active', k === id); });
+      links.forEach(function (a) {
+        if (a.getAttribute('href') === '#' + id) a.setAttribute('aria-current', 'page');
+        else a.removeAttribute('aria-current');
+      });
+      var current = menu.querySelector('[aria-current="page"]');
+      if (current && menu.scrollWidth > menu.clientWidth) {
+        menu.scrollLeft = current.offsetLeft - (menu.clientWidth - current.offsetWidth) / 2;
+      }
+      updateFades();
+      if (fromClick) {
+        var tabsOnTop = getComputedStyle(nav).position === 'sticky';
+        var top = main.getBoundingClientRect().top + window.pageYOffset - (tabsOnTop ? nav.offsetHeight : 0);
+        if (window.pageYOffset > top) window.scrollTo(0, Math.max(0, top));
+        var h = panels[id].querySelector('h2');
+        if (h) { h.setAttribute('tabindex', '-1'); h.focus({ preventScroll: true }); }
+      }
+    }
+
+    document.addEventListener('click', function (e) {
+      var a = e.target.closest && e.target.closest('a[href^="#"]');
+      if (!a) return;
+      var id = a.getAttribute('href').slice(1);
+      if (!panels[id]) return;
+      e.preventDefault();
+      show(id, true);
+      try { history.pushState(null, '', '#' + id); } catch (err) {}
+    });
+    window.addEventListener('popstate', function () { show(location.hash.slice(1), false); });
+    window.addEventListener('hashchange', function () { show(location.hash.slice(1), false); });
+    menu.addEventListener('scroll', updateFades, { passive: true });
+    window.addEventListener('resize', updateFades);
+
+    if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+    show(location.hash.slice(1), false);
+    window.scrollTo(0, 0);
+    window.addEventListener('load', function () { window.scrollTo(0, 0); });
+  })();
+</script>
+</body>
+</html>
